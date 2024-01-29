@@ -13,7 +13,7 @@ devDependencies:
     version: 0.45.0
   '@napi-rs/cli':
     specifier: ^3.0.0-alpha.34
-    version: 3.0.0-alpha.34(@emnapi/runtime@0.45.0)(@tybys/wasm-util@0.8.1)(emnapi@0.45.0)
+    version: 3.0.0-alpha.34(@emnapi/runtime@0.45.0)(@tybys/wasm-util@0.8.1)(emnapi@1.0.0)
   '@swc-node/register':
     specifier: ^1.6.8
     version: 1.6.8(@swc/core@1.3.102)(typescript@5.3.3)
@@ -42,8 +42,8 @@ devDependencies:
     specifier: ^5.3.0
     version: 5.3.0
   emnapi:
-    specifier: ^0.45.0
-    version: 0.45.0
+    specifier: ^1.0.0
+    version: 1.0.0
   eslint:
     specifier: ^8.56.0
     version: 8.56.0
@@ -202,7 +202,7 @@ packages:
       - supports-color
     dev: true
 
-  /@napi-rs/cli@3.0.0-alpha.34(@emnapi/runtime@0.45.0)(@tybys/wasm-util@0.8.1)(emnapi@0.45.0):
+  /@napi-rs/cli@3.0.0-alpha.34(@emnapi/runtime@0.45.0)(@tybys/wasm-util@0.8.1)(emnapi@1.0.0):
     resolution: {integrity: sha512-wfO1vZg/mQG0u+FX0EuARLRQa8WSbxr8Gz65A1IvAFY9b94t2exmkD1x8D6ZZYOqcsAt3sb7dEmxxk6v0YMrAA==}
     engines: {node: '>= 16'}
     hasBin: true
@@ -225,7 +225,7 @@ packages:
       clipanion: 3.2.1(typanion@3.14.0)
       colorette: 2.0.20
       debug: 4.3.4
-      emnapi: 0.45.0
+      emnapi: 1.0.0
       inquirer: 9.2.12
       js-yaml: 4.1.0
       lodash-es: 4.17.21
@@ -1692,8 +1692,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /emnapi@0.45.0:
-    resolution: {integrity: sha512-VfMt6cZYk5BVuN99ngFQt1EXJLfD4fUx4jmXTCDDzq5DtY3jiSqjFD6p6Ojh5v+AlN5VXVYZbFtgccoz1wvQoQ==}
+  /emnapi@1.0.0:
+    resolution: {integrity: sha512-s0NVPETvRAIr60GSDayoAEkodn/R2kY3vXZCXppYaRmfq95li/EY6WYqkSxQdGfgGBPNZ1Jr4Px8nYITw1V5zA==}
     peerDependencies:
       node-addon-api: '>= 6.1.0'
     peerDependenciesMeta:
