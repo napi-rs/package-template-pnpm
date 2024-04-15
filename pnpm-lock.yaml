@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@emnapi/core':
-    specifier: ^0.45.0
-    version: 0.45.0
+    specifier: ^1.0.0
+    version: 1.1.1
   '@emnapi/runtime':
     specifier: ^0.45.0
     version: 0.45.0
@@ -131,8 +131,8 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /@emnapi/core@0.45.0:
-    resolution: {integrity: sha512-DPWjcUDQkCeEM4VnljEOEcXdAD7pp8zSZsgOujk/LGIwCXWbXJngin+MO4zbH429lzeC3WbYLGjE2MaUOwzpyw==}
+  /@emnapi/core@1.1.1:
+    resolution: {integrity: sha512-eu4KjHfXg3I+UUR7vSuwZXpRo4c8h4Rtb5Lu2F7Z4JqJFl/eidquONEBiRs6viXKpWBC3BaJBy68xGJ2j56idw==}
     dependencies:
       tslib: 2.6.2
     dev: true
