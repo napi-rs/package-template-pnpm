@@ -93,6 +93,11 @@ function requireNative() {
         loadErrors.push(e)
       }
       try {
+        return require('./package-template.win32-x64-gnu.node')
+      } catch (e) {
+        loadErrors.push(e)
+      }
+      try {
         return require('@napi-rs/package-template-pnpm-win32-x64-msvc')
       } catch (e) {
         loadErrors.push(e)
