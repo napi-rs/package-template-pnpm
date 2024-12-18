@@ -15,8 +15,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
       '@napi-rs/cli':
-        specifier: 3.0.0-alpha.64
-        version: 3.0.0-alpha.64(@emnapi/runtime@1.2.0)(@types/node@22.7.4)(emnapi@1.2.0)
+        specifier: 3.0.0-alpha.65
+        version: 3.0.0-alpha.65(@emnapi/runtime@1.2.0)(@types/node@22.7.4)(emnapi@1.2.0)
       '@napi-rs/wasm-runtime':
         specifier: ^0.2.4
         version: 0.2.4
@@ -136,8 +136,8 @@ packages:
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
 
-  '@napi-rs/cli@3.0.0-alpha.64':
-    resolution: {integrity: sha512-IYkNvh+SjFd4StEIJVsXa4paAeKakYG80GWTfX3PwpFlrX4fQZ7BkPR1IGWI17x5psz9MQvuEyicwjGWiHxI4A==}
+  '@napi-rs/cli@3.0.0-alpha.65':
+    resolution: {integrity: sha512-Ka6TnnqUt9kI+slxe91GCSzuvoDAtqXMkcQfpMdpdHrUWI4LaWiSsG2ChyTHJmN0Tu/fC1ISv8dFpfEDdqSjOg==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
@@ -1835,13 +1835,13 @@ snapshots:
       nopt: 5.0.0
       npmlog: 5.0.1
       rimraf: 3.0.2
-      semver: 7.5.4
+      semver: 7.6.3
       tar: 6.2.0
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  '@napi-rs/cli@3.0.0-alpha.64(@emnapi/runtime@1.2.0)(@types/node@22.7.4)(emnapi@1.2.0)':
+  '@napi-rs/cli@3.0.0-alpha.65(@emnapi/runtime@1.2.0)(@types/node@22.7.4)(emnapi@1.2.0)':
     dependencies:
       '@inquirer/prompts': 7.0.0(@types/node@22.7.4)
       '@napi-rs/cross-toolchain': 0.0.16
@@ -2315,7 +2315,7 @@ snapshots:
 
   agent-base@6.0.2:
     dependencies:
-      debug: 4.3.5
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
 
@@ -2660,7 +2660,7 @@ snapshots:
   https-proxy-agent@5.0.1:
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.5
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
 
