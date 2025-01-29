@@ -15,8 +15,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
       '@napi-rs/cli':
-        specifier: 3.0.0-alpha.68
-        version: 3.0.0-alpha.68(@emnapi/runtime@1.2.0)(@types/node@22.7.4)(emnapi@1.2.0)
+        specifier: 3.0.0-alpha.70
+        version: 3.0.0-alpha.70(@emnapi/runtime@1.2.0)(@types/node@22.7.4)(emnapi@1.2.0)
       '@napi-rs/wasm-runtime':
         specifier: ^0.2.4
         version: 0.2.4
@@ -136,8 +136,8 @@ packages:
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
 
-  '@napi-rs/cli@3.0.0-alpha.68':
-    resolution: {integrity: sha512-pT6LAb2HpeoAT80lXx6wQ/6PnDn1bxIVb3BiaFHrrNhklxBvIdSWI3AGepFoXR7tKykCA+Oz+jCn0WGyLWtPvQ==}
+  '@napi-rs/cli@3.0.0-alpha.70':
+    resolution: {integrity: sha512-hYZuA1gXO7hx9sXzz4qCVBevh46unQMXRvgUhg2kHctnHJNOKKOjNcxM3OF7o60olzlNsjQ1SpzySWlYn/JLSg==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
@@ -1862,7 +1862,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@napi-rs/cli@3.0.0-alpha.68(@emnapi/runtime@1.2.0)(@types/node@22.7.4)(emnapi@1.2.0)':
+  '@napi-rs/cli@3.0.0-alpha.70(@emnapi/runtime@1.2.0)(@types/node@22.7.4)(emnapi@1.2.0)':
     dependencies:
       '@inquirer/prompts': 7.0.0(@types/node@22.7.4)
       '@napi-rs/cross-toolchain': 0.0.19
