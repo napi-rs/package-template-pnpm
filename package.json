@@ -67,7 +67,7 @@
     "@emnapi/core": "^1.3.1",
     "@emnapi/runtime": "^1.3.1",
     "@napi-rs/cli": "3.0.0-alpha.100",
-    "@napi-rs/wasm-runtime": "^0.2.7",
+    "@napi-rs/wasm-runtime": "^1.0.0",
     "@oxc-node/core": "^0.0.29",
     "@taplo/cli": "^0.7.0",
     "@tybys/wasm-util": "^0.10.0",
