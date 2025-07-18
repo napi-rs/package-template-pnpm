@@ -10,8 +10,8 @@ version = "0.1.0"
 crate-type = ["cdylib"]
 
 [dependencies]
-napi = "3.0.0-alpha"
-napi-derive = "3.0.0-alpha"
+napi = "3.0.0"
+napi-derive = "3.0.0"
 
 [build-dependencies]
 napi-build = "2"
@@ -19,3 +19,4 @@ napi-build = "2"
 [profile.release]
 lto = true
 codegen-units = 1
+strip = "symbols"
