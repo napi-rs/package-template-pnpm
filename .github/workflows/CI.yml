@@ -249,7 +249,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: bindings-${{ matrix.settings.target }}
           path: .
@@ -309,7 +309,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --force
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: bindings-${{ matrix.target }}
           path: .
@@ -346,7 +346,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: bindings-wasm32-wasip1-threads
           path: .
@@ -378,7 +378,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Download all artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           path: artifacts
       - name: create npm dirs
