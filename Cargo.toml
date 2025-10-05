@@ -10,7 +10,7 @@ version = "0.1.0"
 crate-type = ["cdylib"]
 
 [dependencies]
-napi = "3.0.0"
+napi = { version = "3", features = ["async"] }
 napi-derive = "3.0.0"
 
 [build-dependencies]
