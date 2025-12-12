@@ -153,7 +153,7 @@ jobs:
         run: ${{ matrix.settings.build }}
         shell: bash
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: matrix.settings.target != 'wasm32-wasip1-threads'
         with:
           name: bindings-${{ matrix.settings.target }}
@@ -161,7 +161,7 @@ jobs:
           if-no-files-found: error
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: matrix.settings.target == 'wasm32-wasip1-threads'
         with:
           name: bindings-${{ matrix.settings.target }}
@@ -208,7 +208,7 @@ jobs:
             rm -rf node_modules
             rm -rf target
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: bindings-freebsd
           path: ${{ env.APP_NAME }}.*.node
@@ -247,7 +247,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Download artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: bindings-${{ matrix.settings.target }}
           path: .
@@ -306,7 +306,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --force
       - name: Download artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: bindings-${{ matrix.target }}
           path: .
@@ -343,7 +343,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Download artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: bindings-wasm32-wasip1-threads
           path: .
@@ -375,7 +375,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Download all artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           path: artifacts
       - name: create npm dirs
