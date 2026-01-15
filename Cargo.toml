@@ -1,5 +1,4 @@
 [package]
-authors = ["LongYinan <lynweklm@gmail.com>"]
 edition = "2021"
 name = "napi-package-template"
 version = "0.1.0"
