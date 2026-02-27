@@ -9,11 +9,11 @@
 1. Click **Use this template**.
 2. **Clone** your project.
 3. Run `pnpm install` to install dependencies.
-4. Run `npx napi rename -n [name]` command under the project folder to rename your package.
+4. Run `pnpm napi rename -n [@your-scope/package-name] -b [binary-name]` command under the project folder to rename your package.
 
 ## Install this test package
 
-```
+```bash
 pnpm add @napi-rs/package-template
 ```
 
@@ -76,10 +76,12 @@ In `Settings -> Secrets`, add **NPM_TOKEN** into it.
 
 When you want to release the package:
 
-```
+```bash
 npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=<prerelease-id>] | from-git]
 
 git push
 ```
 
 GitHub actions will do the rest job for you.
+
+> WARN: Don't run `npm publish` manually.
