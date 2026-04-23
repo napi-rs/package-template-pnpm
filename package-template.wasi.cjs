@@ -109,3 +109,4 @@ const { instance: __napiInstance, module: __wasiModule, napiModule: __napiModule
 })
 module.exports = __napiModule.exports
 module.exports.plus100 = __napiModule.exports.plus100
+module.exports.plus100Async = __napiModule.exports.plus100Async
