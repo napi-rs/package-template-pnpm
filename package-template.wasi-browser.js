@@ -57,3 +57,4 @@ const {
 })
 export default __napiModule.exports
 export const plus100 = __napiModule.exports.plus100
+export const plus100Async = __napiModule.exports.plus100Async
