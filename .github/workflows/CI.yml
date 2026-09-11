@@ -96,6 +96,9 @@ jobs:
             target: aarch64-pc-windows-msvc
             build: pnpm build --target aarch64-pc-windows-msvc
           - host: ubuntu-latest
+            target: x86_64-unknown-freebsd
+            build: pnpm build --target x86_64-unknown-freebsd -x
+          - host: ubuntu-latest
             target: wasm32-wasip1-threads
             build: pnpm build --target wasm32-wasip1-threads
     name: stable - ${{ matrix.settings.target }} - node@22
@@ -126,12 +129,12 @@ jobs:
             target/
           key: ${{ matrix.settings.target }}-cargo-${{ matrix.settings.host }}
       - uses: mlugg/setup-zig@v2
-        if: ${{ contains(matrix.settings.target, 'musl') }}
+        if: ${{ contains(matrix.settings.target, 'musl') || contains(matrix.settings.target, 'freebsd') }}
         with:
           version: 0.15.2
       - name: Install cargo-zigbuild
         uses: taiki-e/install-action@v2
-        if: ${{ contains(matrix.settings.target, 'musl') }}
+        if: ${{ contains(matrix.settings.target, 'musl') || contains(matrix.settings.target, 'freebsd') }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
@@ -167,52 +170,41 @@ jobs:
           name: bindings-${{ matrix.settings.target }}
           path: '*.wasm'
           if-no-files-found: error
-  build-freebsd:
+  test-freebsd:
     runs-on: ubuntu-latest
-    name: Build FreeBSD
+    name: Test FreeBSD binding
+    needs:
+      - build
     steps:
       - uses: actions/checkout@v7
-      - name: Build
-        id: build
-        uses: cross-platform-actions/action@v1.4.0
-        env:
-          DEBUG: napi:*
-          RUSTUP_IO_THREADS: 1
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: bindings-x86_64-unknown-freebsd
+          path: .
+      - name: Start VM
+        uses: cross-platform-actions/action@v1.5.0
         with:
           operating_system: freebsd
-          version: '15.0'
+          version: '15.1'
+          shell: bash
           memory: 8G
           cpu_count: 3
-          environment_variables: 'DEBUG RUSTUP_IO_THREADS'
-          shell: bash
-          run: |
-            sudo pkg install -y -f curl node libnghttp2 npm
-            sudo npm install -g corepack
-            curl https://sh.rustup.rs -sSf --output rustup.sh
-            sh rustup.sh -y --profile minimal --default-toolchain beta
-            sudo corepack enable
-            source "$HOME/.cargo/env"
-            echo "~~~~ rustc --version ~~~~"
-            rustc --version
-            echo "~~~~ node -v ~~~~"
-            node -v
-            echo "~~~~ pnpm --version ~~~~"
-            pnpm --version
-            pwd
-            ls -lah
-            whoami
-            env
-            freebsd-version
-            pnpm install
-            pnpm build
-            rm -rf node_modules
-            rm -rf target
-      - name: Upload artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: bindings-freebsd
-          path: ${{ env.APP_NAME }}.*.node
-          if-no-files-found: error
+      - name: Test
+        id: test
+        shell: cpa.sh {0} --environment-variables DEBUG
+        env:
+          DEBUG: napi:*
+        run: |
+          sudo pkg install -y -f node libnghttp2
+          echo "~~~~ node -v ~~~~"
+          node -v
+          pwd
+          ls -lah
+          whoami
+          freebsd-version
+          node simple-test.js
+          node -e "require('./index.js')"
   test-macOS-windows-binding:
     name: Test bindings on ${{ matrix.settings.target }} - node@${{ matrix.node }}
     needs:
@@ -243,8 +235,9 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: pnpm
           architecture: ${{ matrix.settings.architecture }}
+      # use --force to download the all platform/arch dependencies
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --force
       - name: Download artifacts
         uses: actions/download-artifact@v8
         with:
@@ -358,7 +351,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - lint
-      - build-freebsd
+      - test-freebsd
       - test-macOS-windows-binding
       - test-linux-binding
       - test-wasi
