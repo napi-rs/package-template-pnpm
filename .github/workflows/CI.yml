@@ -187,7 +187,10 @@ jobs:
           RUSTUP_IO_THREADS: 1
         run: |
           sudo pkg install -y -f curl node libnghttp2 npm
-          sudo npm install -g pnpm
+          # pnpm 12+ ships no prebuilt binary for FreeBSD and its npm wrapper fails to install,
+          # so pin the FreeBSD build to pnpm 11 (pure JavaScript)
+          sudo npm install -g pnpm@11
+          corepack prepare pnpm@11 --activate
           curl https://sh.rustup.rs -sSf --output rustup.sh
           sh rustup.sh -y --profile minimal --default-toolchain beta
           source "$HOME/.cargo/env"
