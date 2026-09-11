@@ -172,41 +172,40 @@ jobs:
     name: Build FreeBSD
     steps:
       - uses: actions/checkout@v7
+      - name: Start VM
+        uses: cross-platform-actions/action@v1.5.0
+        with:
+          operating_system: freebsd
+          version: '15.1'
+          memory: 8G
+          cpu_count: 3
       - name: Build
         id: build
-        uses: cross-platform-actions/action@v1.4.0
+        shell: cpa.sh {0} --environment-variables DEBUG RUSTUP_IO_THREADS
         env:
           DEBUG: napi:*
           RUSTUP_IO_THREADS: 1
-        with:
-          operating_system: freebsd
-          version: '15.0'
-          memory: 8G
-          cpu_count: 3
-          environment_variables: 'DEBUG RUSTUP_IO_THREADS'
-          shell: bash
-          run: |
-            sudo pkg install -y -f curl node libnghttp2 npm
-            sudo npm install -g corepack
-            curl https://sh.rustup.rs -sSf --output rustup.sh
-            sh rustup.sh -y --profile minimal --default-toolchain beta
-            sudo corepack enable
-            source "$HOME/.cargo/env"
-            echo "~~~~ rustc --version ~~~~"
-            rustc --version
-            echo "~~~~ node -v ~~~~"
-            node -v
-            echo "~~~~ pnpm --version ~~~~"
-            pnpm --version
-            pwd
-            ls -lah
-            whoami
-            env
-            freebsd-version
-            pnpm install
-            pnpm build
-            rm -rf node_modules
-            rm -rf target
+        run: |
+          sudo pkg install -y -f curl node libnghttp2 npm
+          sudo npm install -g pnpm
+          curl https://sh.rustup.rs -sSf --output rustup.sh
+          sh rustup.sh -y --profile minimal --default-toolchain beta
+          source "$HOME/.cargo/env"
+          echo "~~~~ rustc --version ~~~~"
+          rustc --version
+          echo "~~~~ node -v ~~~~"
+          node -v
+          echo "~~~~ pnpm --version ~~~~"
+          pnpm --version
+          pwd
+          ls -lah
+          whoami
+          env
+          freebsd-version
+          pnpm install
+          pnpm build
+          rm -rf node_modules
+          rm -rf target
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
@@ -243,8 +242,9 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: pnpm
           architecture: ${{ matrix.settings.architecture }}
+      # use --force to download the all platform/arch dependencies
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --force
       - name: Download artifacts
         uses: actions/download-artifact@v8
         with:
