@@ -177,6 +177,7 @@ jobs:
         with:
           operating_system: freebsd
           version: '15.1'
+          shell: bash
           memory: 8G
           cpu_count: 3
       - name: Build
