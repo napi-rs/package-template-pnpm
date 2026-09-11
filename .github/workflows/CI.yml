@@ -205,12 +205,6 @@ jobs:
           freebsd-version
           node simple-test.js
           node -e "require('./index.js')"
-      - name: Upload artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: bindings-freebsd
-          path: ${{ env.APP_NAME }}.*.node
-          if-no-files-found: error
   test-macOS-windows-binding:
     name: Test bindings on ${{ matrix.settings.target }} - node@${{ matrix.node }}
     needs:
