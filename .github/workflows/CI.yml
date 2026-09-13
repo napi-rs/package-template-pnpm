@@ -183,7 +183,7 @@ jobs:
           name: bindings-x86_64-unknown-freebsd
           path: .
       - name: Start VM
-        uses: cross-platform-actions/action@v1.5.0
+        uses: cross-platform-actions/action@v1.6.0
         with:
           operating_system: freebsd
           version: '15.1'
