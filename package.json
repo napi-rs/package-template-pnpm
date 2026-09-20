@@ -102,5 +102,5 @@
       "@oxc-node/core/register"
     ]
   },
-  "packageManager": "pnpm@12.4.2"
+  "packageManager": "pnpm@12.5.1"
 }
