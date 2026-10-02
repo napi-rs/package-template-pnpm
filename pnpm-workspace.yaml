@@ -1,0 +1,4 @@
+supportedArchitectures:
+  os: [current, darwin, linux, win32]
+  cpu: [current, x64, arm64, arm]
+  libc: [current, glibc, musl]
