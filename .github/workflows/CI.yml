@@ -34,7 +34,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 26
           cache: 'pnpm'
 
       - name: Install
@@ -110,7 +110,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 26
           cache: pnpm
       - name: Install
         uses: dtolnay/rust-toolchain@stable
@@ -149,7 +149,7 @@ jobs:
         uses: actions/setup-node@v7
         if: matrix.settings.target == 'i686-pc-windows-msvc'
         with:
-          node-version: 22
+          node-version: 26
           cache: pnpm
           architecture: x86
       - name: Build
@@ -330,7 +330,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 26
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
@@ -362,7 +362,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 26
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
