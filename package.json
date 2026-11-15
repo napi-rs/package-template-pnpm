@@ -63,14 +63,14 @@
     "version": "napi version"
   },
   "devDependencies": {
-    "@emnapi/core": "^2.0.0-alpha.4",
-    "@emnapi/runtime": "^2.0.0-alpha.4",
+    "@emnapi/core": "^2.0.0-beta.3",
+    "@emnapi/runtime": "^2.0.0-beta.3",
     "@napi-rs/cli": "^3.10.12",
-    "@napi-rs/wasm-runtime": "^1.2.3",
+    "@napi-rs/wasm-runtime": "^1.2.7",
     "@oxc-node/core": "^1.0.0",
     "ava": "^8.0.1",
     "chalk": "^6.0.0",
-    "emnapi": "^2.0.0-alpha.4",
+    "emnapi": "^2.0.0-beta.3",
     "husky": "^9.1.7",
     "lint-staged": "^17.3.0",
     "npm-run-all2": "^9.0.3",
