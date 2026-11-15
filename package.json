@@ -65,7 +65,7 @@
   "devDependencies": {
     "@emnapi/core": "^2.0.0-alpha.4",
     "@emnapi/runtime": "^2.0.0-alpha.4",
-    "@napi-rs/cli": "^3.8.6",
+    "@napi-rs/cli": "^3.10.12",
     "@napi-rs/wasm-runtime": "^1.2.3",
     "@oxc-node/core": "^1.0.0",
     "ava": "^8.0.1",
